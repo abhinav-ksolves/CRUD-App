@@ -1,0 +1,39 @@
+<%- include('header') -%>
+
+<div class="container">
+    <% if(data.length===0){ %>
+        <h1>No user Available!</h1>
+     <%} else{ %>
+    <table>
+        <thead>
+            <th>User Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Salary</th>
+            <th>Edit/Delete</th>
+        </thead>
+        <tbody>
+           
+            <% data.forEach((data)=>{ %>
+                <tr>
+                
+                    <td><%= data.id %></td>
+                    <td><%= data.firstName %></td>
+                    <td><%= data.lastName %></td>
+                    <td><%= data.salary %></td>
+                    <td>
+                        <form class="deleteForm" action="/users/delete/<%= data.id %>" method="POST">
+                            <button type="submit">Delete</button> 
+                        </form>
+
+                        <button><a href="/users/updateUser/<%= data.id %>">Edit</a></button>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+<% } %>
+</div>
+
+    
+<%- include('footer') -%>

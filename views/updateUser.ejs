@@ -1,0 +1,13 @@
+<%- include('header') -%>
+<div id="updateUser">
+    <form action="/users/updateUser/<%=data.id%>" method="POST">
+           <label for="firstName">First Name</label> <br>
+           <input type="text"  name="firstName" value=<%= data.firstName %> required> <br>
+           <label for="lastName">Last Name</label> <br>
+           <input type="text"  name="lastName" value=<%= data.lastName %>> <br>
+           <label for="salary">Salary</label> <br>
+           <input type="text" name="salary" value=<%= data.salary %> required> <br>
+           <button type="submit">Submit</button>
+    </form>
+</div>
+<%- include('footer') -%>
