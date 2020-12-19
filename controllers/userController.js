@@ -29,8 +29,7 @@ exports.create = (req,res)=>{
 //retriving all users
 exports.findAll = (req,res)=>{
            const salary = req.body.salary;
-           const condition = salary?{salary:{[Op.gt]:30000}}:null;
-           User.findAll({where:condition})
+           User.findAll({where:null})
            .then((data)=>{
                const sortedUsers = data.sort((user1,user2)=>user1.id-user2.id);
                res.render('index',{title:'User Details',data:sortedUsers});
